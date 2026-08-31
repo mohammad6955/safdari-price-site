@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+{% block title %}مدیریت — Safdari Jewellery{% endblock %}
+
+{% block content %}
+
+<section class="admin-page">
+
+```
+<div class="admin-header">
+
+    <div>
+        <span class="eyebrow">SAFDARI JEWELLERY</span>
+        <h1>پنل مدیریت</h1>
+        <p>
+            مدیریت نرخ طلا و مدل‌های مجموعه
+        </p>
+    </div>
+
+    <div class="admin-live">
+
+        <span class="status-dot"></span>
+
+        سیستم فعال
+
+    </div>
+
+</div>
+
+
+<!-- GOLD PRICE -->
+
+<section class="admin-panel gold-panel">
+
+    <div class="panel-heading">
+
+        <div class="panel-icon">
+            Au
+        </div>
+
+        <div>
+            <span>GOLD PRICE</span>
+            <h2>قیمت فعلی طلا</h2>
+        </div>
+
+    </div>
+
+
+    <form method="post" class="gold-form">
+
+        <input type="hidden" name="action" value="gold">
+
+        <div class="input-wrapper">
+
+            <input
+                type="number"
+                name="gold_price"
+                value="{{ gold|round(0)|int }}"
+                min="1"
+                step="1"
+                required
+            >
+
+            <span>
+                تومان / گرم
+            </span>
+
+        </div>
+
+        <button type="submit" class="primary-button">
+            ذخیره قیمت
+            <span>↗</span>
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- ADD MODEL -->
+
+<section class="admin-panel">
+
+    <div class="panel-heading">
+
+        <div class="panel-icon">
+            +
+        </div>
+
+        <div>
+            <span>NEW MODEL</span>
+            <h2>افزودن مدل جدید</h2>
+        </div>
+
+    </div>
+
+
+    <form
+        method="post"
+        enctype="multipart/form-data"
+        class="model-form"
+    >
+
+        <input type="hidden" name="action" value="add">
+
+
+        <div class="form-grid">
+
+            <label>
+
+                <span>نام مدل</span>
+
+                <input
+                    name="name"
+                    placeholder="Crown 01"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+
+                <span>کد مدل</span>
+
+                <input
+                    name="code"
+                    placeholder="CR-01"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+
+                <span>قیمت مرجع مدل</span>
+
+                <input
+                    type="number"
+                    name="base_price"
+                    placeholder="100000000"
+                    min="1"
+                    required
+                >
+
+            </label>
+
+
+            <label>
+
+                <span>قیمت طلای مرجع</span>
+
+                <input
+                    type="number"
+                    name="reference_gold"
+                    value="{{ gold|round(0)|int if gold else '' }}"
+                    min="1"
+                    required
+                >
+
+            </label>
+
+        </div>
+
+
+        <label class="file-input">
+
+            <span>
+                تصویر مدل
+            </span>
+
+            <div class="file-box">
+
+                <span class="file-icon">
+                    +
+                </span>
+
+                <span>
+                    انتخاب تصویر
+                </span>
+
+                <small>
+                    JPG / PNG / WEBP — حداکثر 5MB
+                </small>
+
+            </div>
+
+            <input
+                type="file"
+                name="image"
+                accept=".jpg,.jpeg,.png,.webp"
+            >
+
+        </label>
+
+
+        <button type="submit" class="primary-button full">
+
+            افزودن مدل
+
+            <span>＋</span>
+
+        </button>
+
+    </form>
+
+
+    <p class="hint">
+        قیمت مرجع مدل، قیمتی است که مدل در زمان نرخ طلای مرجع داشته است.
+        با تغییر نرخ طلا، قیمت مدل به‌صورت خودکار تغییر می‌کند.
+    </p>
+
+</section>
+
+
+<!-- MODELS -->
+
+<section class="admin-panel">
+
+    <div class="panel-heading">
+
+        <div class="panel-icon">
+            ◇
+        </div>
+
+        <div>
+            <span>COLLECTION</span>
+            <h2>مدل‌های ثبت‌شده</h2>
+        </div>
+
+    </div>
+
+
+    <div class="admin-list">
+
+        {% for m in models %}
+
+        <div class="admin-item">
+
+            <div class="admin-model-info">
+
+                {% if m.image %}
+
+                <img
+                    src="{{ url_for('static', filename='uploads/' + m.image) }}"
+                    alt="{{ m.name }}"
+                >
+
+                {% else %}
+
+                <div class="admin-thumb">
+                    S
+                </div>
+
+                {% endif %}
+
+
+                <div>
+
+                    <span class="admin-code">
+                        {{ m.code }}
+                    </span>
+
+                    <h3>
+                        {{ m.name }}
+                    </h3>
+
+                    <small>
+                        قیمت فعلی:
+                        <b>
+                            {{ calc_price(m.base_price,m.reference_gold)|money }}
+                        </b>
+                        تومان
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <form
+                method="post"
+                onsubmit="return confirm('این مدل حذف شود؟')"
+            >
+
+                <input
+                    type="hidden"
+                    name="action"
+                    value="delete"
+                >
+
+                <input
+                    type="hidden"
+                    name="id"
+                    value="{{ m.id }}"
+                >
+
+                <button
+                    type="submit"
+                    class="danger-button"
+                >
+                    حذف
+                </button>
+
+            </form>
+
+        </div>
+
+        {% else %}
+
+        <div class="admin-empty">
+            هنوز مدلی ثبت نشده است.
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+```
+
+</section>
+
+{% endblock %}
+

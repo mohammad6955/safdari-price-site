@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}Safdari Jewellery — قیمت مدل‌ها{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+```
+<div class="hero-decoration">
+    <span></span>
+    <i></i>
+    <span></span>
+</div>
+
+<p class="eyebrow">SAFDARI JEWELLERY</p>
+
+<h1>
+    قیمت مدل‌ها
+</h1>
+
+<p class="hero-description">
+    قیمت هر مدل بر اساس آخرین نرخ ثبت‌شده طلا
+    به‌صورت خودکار محاسبه می‌شود.
+</p>
+
+<div class="gold-status">
+
+    <span class="status-dot"></span>
+
+    <span>
+        نرخ فعلی طلا
+    </span>
+
+    <strong>
+        {{ gold|money }}
+    </strong>
+
+    <small>
+        تومان / گرم
+    </small>
+
+</div>
+```
+
+</section>
+
+<section class="collection">
+
+```
+<div class="section-heading">
+
+    <div>
+        <span>COLLECTION</span>
+        <h2>مدل‌های موجود</h2>
+    </div>
+
+    <div class="heading-line"></div>
+
+</div>
+
+
+<div class="grid">
+
+    {% for m in models %}
+
+    <article class="card">
+
+        <div class="card-image">
+
+            {% if m.image %}
+
+            <img
+                src="{{ url_for('static', filename='uploads/' + m.image) }}"
+                alt="{{ m.name }}"
+                loading="lazy"
+            >
+
+            {% else %}
+
+            <div class="placeholder">
+                <span>SAFDARI</span>
+                <small>JEWELLERY</small>
+            </div>
+
+            {% endif %}
+
+            <div class="image-overlay"></div>
+
+            <span class="model-code">
+                {{ m.code }}
+            </span>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="card-title-row">
+
+                <div>
+                    <span class="card-label">
+                        MODEL
+                    </span>
+
+                    <h2>
+                        {{ m.name }}
+                    </h2>
+                </div>
+
+                <span class="card-number">
+                    {{ "%02d"|format(loop.index) }}
+                </span>
+
+            </div>
+
+
+            <div class="price">
+
+                <span class="price-label">
+                    قیمت فعلی
+                </span>
+
+                <strong>
+                    {{ calc_price(m.base_price, m.reference_gold)|money }}
+                </strong>
+
+                <span class="currency">
+                    تومان
+                </span>
+
+            </div>
+
+        </div>
+
+    </article>
+
+    {% else %}
+
+    <div class="empty">
+
+        <div class="empty-symbol">
+            ◇
+        </div>
+
+        <h2>
+            هنوز مدلی برای نمایش ثبت نشده است
+        </h2>
+
+        <p>
+            مدل‌های جدید پس از ثبت در پنل مدیریت
+            در این قسمت نمایش داده می‌شوند.
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+```
+
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,99 @@
+<!doctype html>
+
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+```
+<meta name="theme-color" content="#f5f1e9">
+<meta name="description" content="Safdari Jewellery">
+
+<title>{% block title %}Safdari Jewellery{% endblock %}</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body>
+
+<div class="page">
+
+```
+<header class="header">
+    <div class="header-inner">
+
+        <a class="brand" href="{{ url_for('index') }}">
+            <span class="brand-main">SAFDARI</span>
+            <span class="brand-sub">JEWELLERY</span>
+        </a>
+
+        <div class="header-right">
+
+            {% if session.get('admin') %}
+            <a class="header-admin" href="{{ url_for('admin') }}">
+                مدیریت
+            </a>
+
+            <a class="logout-btn" href="{{ url_for('logout') }}">
+                خروج
+            </a>
+            {% endif %}
+
+        </div>
+
+    </div>
+</header>
+
+
+<main>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="messages">
+                {% for m in messages %}
+                    <div class="message">
+                        <span class="message-icon">✓</span>
+                        {{ m }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+
+    {% block content %}{% endblock %}
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="footer-line"></div>
+
+    <div class="footer-brand">
+        SAFDARI
+    </div>
+
+    <p>
+        قیمت‌ها بر اساس آخرین نرخ طلای ثبت‌شده در سیستم محاسبه می‌شوند.
+    </p>
+
+    <span class="footer-copy">
+        © Safdari Jewellery
+    </span>
+
+</footer>
+```
+
+</div>
+
+</body>
+</html>
+

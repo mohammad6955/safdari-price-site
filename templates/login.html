@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}ورود مدیریت — Safdari Jewellery{% endblock %}
+
+{% block content %}
+
+<section class="login-page">
+
+```
+<div class="login-card">
+
+    <div class="login-logo">
+        <span>SAFDARI</span>
+        <small>JEWELLERY</small>
+    </div>
+
+
+    <div class="login-heading">
+
+        <span>PRIVATE AREA</span>
+
+        <h1>
+            ورود مدیریت
+        </h1>
+
+        <p>
+            برای ورود به پنل مدیریت رمز عبور را وارد کنید.
+        </p>
+
+    </div>
+
+
+    <form method="post" class="login-form">
+
+        <label>
+            رمز عبور
+        </label>
+
+        <div class="password-input">
+
+            <span>⌑</span>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="••••••••"
+                required
+                autofocus
+            >
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="primary-button full"
+        >
+            ورود به پنل
+            <span>↗</span>
+        </button>
+
+    </form>
+
+
+    <a
+        href="{{ url_for('index') }}"
+        class="back-home"
+    >
+        ← بازگشت به سایت
+    </a>
+
+</div>
+```
+
+</section>
+
+{% endblock %}
+

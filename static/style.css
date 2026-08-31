@@ -1,0 +1,1106 @@
+/* =========================================================
+SAFDARI JEWELLERY
+Luxury Minimal Design
+========================================================= */
+
+:root {
+--cream: #f5f1e9;
+--cream-light: #faf8f4;
+--paper: #ffffff;
+--black: #181715;
+--dark: #25231f;
+--gray: #777168;
+--light-gray: #aaa297;
+--line: #ded7cc;
+--gold: #a58a55;
+--gold-light: #c5ad7d;
+--danger: #9b4b43;
+}
+
+* {
+  box-sizing: border-box;
+  }
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+margin: 0;
+background: var(--cream);
+color: var(--black);
+font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+}
+
+a {
+color: inherit;
+}
+
+button,
+input {
+font-family: inherit;
+}
+
+button {
+cursor: pointer;
+}
+
+.page {
+min-height: 100vh;
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+.header {
+height: 86px;
+background: rgba(250, 248, 244, 0.92);
+border-bottom: 1px solid var(--line);
+display: flex;
+align-items: center;
+position: relative;
+z-index: 10;
+}
+
+.header-inner {
+width: min(1240px, 90%);
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.brand {
+text-decoration: none;
+display: flex;
+flex-direction: column;
+line-height: 1;
+gap: 7px;
+}
+
+.brand-main {
+font-family: Georgia, "Times New Roman", serif;
+font-size: 23px;
+letter-spacing: 5px;
+}
+
+.brand-sub {
+font-size: 8px;
+letter-spacing: 5px;
+color: var(--gray);
+margin-left: 5px;
+}
+
+.header-right {
+display: flex;
+align-items: center;
+gap: 25px;
+}
+
+.header-admin,
+.logout-btn {
+text-decoration: none;
+font-size: 12px;
+color: var(--gray);
+transition: 0.25s ease;
+}
+
+.header-admin:hover,
+.logout-btn:hover {
+color: var(--black);
+}
+
+.logout-btn {
+border: 1px solid var(--line);
+padding: 9px 16px;
+}
+
+/* =========================================================
+FLASH MESSAGE
+========================================================= */
+
+.messages {
+width: min(900px, 90%);
+margin: 25px auto 0;
+}
+
+.message {
+display: flex;
+align-items: center;
+gap: 10px;
+background: #ece5d9;
+border: 1px solid #ddd2c2;
+padding: 13px 17px;
+font-size: 13px;
+animation: slideDown 0.4s ease;
+}
+
+.message-icon {
+color: var(--gold);
+font-weight: bold;
+}
+
+/* =========================================================
+HERO
+========================================================= */
+
+.hero {
+text-align: center;
+padding: 110px 20px 75px;
+max-width: 850px;
+margin: auto;
+animation: fadeUp 0.7s ease;
+}
+
+.hero-decoration {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 9px;
+margin-bottom: 30px;
+}
+
+.hero-decoration span {
+width: 35px;
+height: 1px;
+background: var(--gold-light);
+}
+
+.hero-decoration i {
+width: 7px;
+height: 7px;
+border: 1px solid var(--gold);
+transform: rotate(45deg);
+}
+
+.eyebrow {
+margin: 0;
+color: var(--gold);
+font-size: 10px;
+letter-spacing: 4px;
+text-transform: uppercase;
+}
+
+.hero h1 {
+font-family: Georgia, "Times New Roman", serif;
+font-weight: 400;
+font-size: clamp(45px, 7vw, 72px);
+margin: 17px 0 15px;
+letter-spacing: -1px;
+}
+
+.hero-description {
+margin: auto;
+max-width: 500px;
+color: var(--gray);
+line-height: 2;
+font-size: 13px;
+}
+
+.gold-status {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+margin-top: 35px;
+padding: 12px 18px;
+border: 1px solid var(--line);
+background: rgba(255,255,255,0.35);
+font-size: 12px;
+}
+
+.gold-status strong {
+font-size: 15px;
+}
+
+.gold-status small {
+color: var(--gray);
+}
+
+.status-dot {
+width: 6px;
+height: 6px;
+border-radius: 50%;
+background: var(--gold);
+box-shadow: 0 0 0 4px rgba(165,138,85,0.10);
+}
+
+/* =========================================================
+COLLECTION
+========================================================= */
+
+.collection {
+width: min(1240px, 90%);
+margin: auto;
+padding-bottom: 100px;
+}
+
+.section-heading {
+display: flex;
+align-items: flex-end;
+gap: 35px;
+margin-bottom: 35px;
+}
+
+.section-heading span {
+font-size: 9px;
+letter-spacing: 4px;
+color: var(--gold);
+}
+
+.section-heading h2 {
+font-size: 23px;
+font-weight: 400;
+margin: 7px 0 0;
+}
+
+.heading-line {
+flex: 1;
+height: 1px;
+background: var(--line);
+margin-bottom: 7px;
+}
+
+.grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 26px;
+}
+
+.card {
+background: var(--paper);
+border: 1px solid #e5dfd5;
+overflow: hidden;
+animation: fadeUp 0.6s ease both;
+transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:nth-child(2) {
+animation-delay: 0.08s;
+}
+
+.card:nth-child(3) {
+animation-delay: 0.16s;
+}
+
+.card:hover {
+transform: translateY(-7px);
+box-shadow: 0 18px 45px rgba(40,35,25,0.09);
+}
+
+.card-image {
+position: relative;
+overflow: hidden;
+background: #eee8de;
+aspect-ratio: 1 / 1;
+}
+
+.card-image img {
+width: 100%;
+height: 100%;
+display: block;
+object-fit: cover;
+transition: transform 0.7s cubic-bezier(.2,.7,.2,1);
+}
+
+.card:hover .card-image img {
+transform: scale(1.045);
+}
+
+.image-overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(
+to bottom,
+rgba(0,0,0,0.12),
+transparent 35%,
+rgba(0,0,0,0.08)
+);
+pointer-events: none;
+}
+
+.model-code {
+position: absolute;
+top: 16px;
+right: 16px;
+padding: 7px 10px;
+background: rgba(250,248,244,0.90);
+backdrop-filter: blur(5px);
+font-size: 9px;
+letter-spacing: 2px;
+color: var(--dark);
+}
+
+.placeholder {
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background:
+linear-gradient(135deg, #eee8de, #e5ded2);
+color: #a69b8a;
+}
+
+.placeholder span {
+font-family: Georgia, serif;
+font-size: 21px;
+letter-spacing: 5px;
+}
+
+.placeholder small {
+margin-top: 7px;
+font-size: 7px;
+letter-spacing: 4px;
+}
+
+.card-body {
+padding: 23px;
+}
+
+.card-title-row {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+}
+
+.card-label {
+color: var(--light-gray);
+font-size: 8px;
+letter-spacing: 3px;
+}
+
+.card-body h2 {
+margin: 7px 0 0;
+font-size: 18px;
+font-weight: 500;
+}
+
+.card-number {
+font-family: Georgia, serif;
+color: #c9c0b3;
+font-size: 18px;
+}
+
+.price {
+border-top: 1px solid #ebe5dc;
+margin-top: 21px;
+padding-top: 17px;
+display: flex;
+align-items: baseline;
+gap: 8px;
+}
+
+.price-label {
+color: var(--gray);
+font-size: 10px;
+margin-left: auto;
+}
+
+.price strong {
+font-size: 17px;
+font-weight: 600;
+}
+
+.currency {
+color: var(--gray);
+font-size: 10px;
+}
+
+/* =========================================================
+EMPTY STATE
+========================================================= */
+
+.empty {
+grid-column: 1 / -1;
+text-align: center;
+padding: 90px 20px;
+border: 1px dashed var(--line);
+}
+
+.empty-symbol {
+font-family: Georgia, serif;
+font-size: 30px;
+color: var(--gold);
+}
+
+.empty h2 {
+font-size: 18px;
+font-weight: 500;
+margin: 15px 0 7px;
+}
+
+.empty p {
+margin: 0;
+color: var(--gray);
+font-size: 12px;
+}
+
+/* =========================================================
+ADMIN
+========================================================= */
+
+.admin-page {
+width: min(1050px, 90%);
+margin: 70px auto 100px;
+}
+
+.admin-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+margin-bottom: 45px;
+}
+
+.admin-header h1 {
+font-family: Georgia, serif;
+font-size: 42px;
+font-weight: 400;
+margin: 12px 0 5px;
+}
+
+.admin-header p {
+margin: 0;
+color: var(--gray);
+font-size: 12px;
+}
+
+.admin-live {
+display: flex;
+align-items: center;
+gap: 9px;
+border: 1px solid var(--line);
+padding: 10px 14px;
+color: var(--gray);
+font-size: 11px;
+}
+
+.admin-panel {
+background: var(--paper);
+border: 1px solid #e3ddd4;
+padding: 32px;
+margin-bottom: 25px;
+}
+
+.panel-heading {
+display: flex;
+align-items: center;
+gap: 14px;
+margin-bottom: 27px;
+}
+
+.panel-icon {
+width: 42px;
+height: 42px;
+border: 1px solid var(--line);
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--gold);
+font-family: Georgia, serif;
+font-size: 17px;
+}
+
+.panel-heading span {
+color: var(--gold);
+font-size: 8px;
+letter-spacing: 3px;
+}
+
+.panel-heading h2 {
+margin: 5px 0 0;
+font-size: 18px;
+font-weight: 500;
+}
+
+.gold-form {
+display: flex;
+gap: 12px;
+}
+
+.input-wrapper {
+flex: 1;
+position: relative;
+}
+
+.input-wrapper input {
+width: 100%;
+height: 50px;
+border: 1px solid var(--line);
+background: var(--cream-light);
+padding: 0 17px;
+font-size: 15px;
+outline: none;
+transition: border 0.25s ease;
+}
+
+.input-wrapper input:focus,
+.form-grid input:focus,
+.password-input input:focus {
+border-color: var(--gold);
+}
+
+.input-wrapper span {
+position: absolute;
+left: 16px;
+top: 16px;
+color: var(--gray);
+font-size: 10px;
+}
+
+.primary-button {
+height: 50px;
+padding: 0 23px;
+border: 0;
+background: var(--black);
+color: white;
+font-size: 12px;
+transition: 0.25s ease;
+}
+
+.primary-button:hover {
+background: var(--gold);
+}
+
+.primary-button span {
+margin-right: 9px;
+}
+
+.full {
+width: 100%;
+}
+
+/* =========================================================
+FORM
+========================================================= */
+
+.form-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 18px;
+}
+
+.form-grid label,
+.file-input {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.form-grid label > span,
+.file-input > span {
+font-size: 11px;
+color: var(--gray);
+}
+
+.form-grid input {
+height: 47px;
+padding: 0 14px;
+border: 1px solid var(--line);
+background: var(--cream-light);
+outline: none;
+font-size: 13px;
+transition: border 0.25s ease;
+}
+
+.file-input {
+margin-top: 20px;
+position: relative;
+}
+
+.file-box {
+min-height: 80px;
+border: 1px dashed #cfc5b6;
+background: var(--cream-light);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+color: var(--gray);
+font-size: 12px;
+}
+
+.file-box small {
+color: var(--light-gray);
+}
+
+.file-icon {
+width: 27px;
+height: 27px;
+border: 1px solid var(--gold);
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--gold);
+}
+
+.file-input input {
+position: absolute;
+inset: 23px 0 0;
+width: 100%;
+height: 80px;
+opacity: 0;
+cursor: pointer;
+}
+
+.model-form > .primary-button {
+margin-top: 20px;
+}
+
+.hint {
+color: var(--light-gray);
+font-size: 10px;
+line-height: 2;
+margin: 20px 0 0;
+}
+
+/* =========================================================
+ADMIN LIST
+========================================================= */
+
+.admin-list {
+display: grid;
+gap: 10px;
+}
+
+.admin-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 20px;
+padding: 13px;
+background: var(--cream-light);
+border: 1px solid #e8e1d8;
+}
+
+.admin-model-info {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.admin-model-info img,
+.admin-thumb {
+width: 60px;
+height: 60px;
+object-fit: cover;
+background: #e9e2d7;
+}
+
+.admin-thumb {
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: Georgia, serif;
+color: var(--gold);
+font-size: 22px;
+}
+
+.admin-code {
+color: var(--gold);
+font-size: 8px;
+letter-spacing: 2px;
+}
+
+.admin-model-info h3 {
+margin: 4px 0;
+font-size: 14px;
+font-weight: 500;
+}
+
+.admin-model-info small {
+color: var(--gray);
+font-size: 10px;
+}
+
+.admin-model-info small b {
+color: var(--black);
+}
+
+.danger-button {
+border: 1px solid #dfc4c0;
+background: transparent;
+color: var(--danger);
+padding: 8px 14px;
+font-size: 10px;
+transition: 0.25s ease;
+}
+
+.danger-button:hover {
+background: var(--danger);
+color: white;
+}
+
+.admin-empty {
+text-align: center;
+padding: 40px;
+color: var(--gray);
+font-size: 12px;
+}
+
+/* =========================================================
+LOGIN
+========================================================= */
+
+.login-page {
+min-height: calc(100vh - 86px);
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 50px 20px;
+}
+
+.login-card {
+width: min(430px, 100%);
+background: var(--paper);
+border: 1px solid #e2dcd3;
+padding: 50px 45px;
+box-shadow: 0 25px 70px rgba(40,35,25,0.07);
+animation: fadeUp 0.6s ease;
+}
+
+.login-logo {
+text-align: center;
+display: flex;
+flex-direction: column;
+gap: 7px;
+}
+
+.login-logo span {
+font-family: Georgia, serif;
+font-size: 25px;
+letter-spacing: 6px;
+}
+
+.login-logo small {
+color: var(--gold);
+font-size: 7px;
+letter-spacing: 5px;
+}
+
+.login-heading {
+text-align: center;
+margin: 45px 0 30px;
+}
+
+.login-heading > span {
+color: var(--gold);
+font-size: 8px;
+letter-spacing: 3px;
+}
+
+.login-heading h1 {
+font-family: Georgia, serif;
+font-weight: 400;
+font-size: 31px;
+margin: 10px 0;
+}
+
+.login-heading p {
+color: var(--gray);
+font-size: 11px;
+line-height: 2;
+}
+
+.login-form label {
+display: block;
+color: var(--gray);
+font-size: 11px;
+margin-bottom: 8px;
+}
+
+.password-input {
+position: relative;
+margin-bottom: 15px;
+}
+
+.password-input input {
+width: 100%;
+height: 50px;
+border: 1px solid var(--line);
+background: var(--cream-light);
+outline: none;
+padding: 0 45px 0 15px;
+font-size: 14px;
+direction: rtl;
+}
+
+.password-input > span {
+position: absolute;
+right: 16px;
+top: 15px;
+color: var(--gold);
+}
+
+.back-home {
+display: block;
+text-align: center;
+margin-top: 25px;
+color: var(--gray);
+font-size: 10px;
+text-decoration: none;
+}
+
+.back-home:hover {
+color: var(--black);
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
+
+.footer {
+text-align: center;
+padding: 55px 20px 35px;
+color: var(--light-gray);
+font-size: 10px;
+}
+
+.footer-line {
+width: 45px;
+height: 1px;
+background: var(--gold-light);
+margin: 0 auto 25px;
+}
+
+.footer-brand {
+font-family: Georgia, serif;
+letter-spacing: 5px;
+color: var(--gray);
+}
+
+.footer p {
+margin: 12px 0 17px;
+}
+
+.footer-copy {
+font-size: 8px;
+letter-spacing: 2px;
+}
+
+/* =========================================================
+ANIMATIONS
+========================================================= */
+
+@keyframes fadeUp {
+
+```
+from {
+    opacity: 0;
+    transform: translateY(18px);
+}
+
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+```
+
+}
+
+@keyframes slideDown {
+
+```
+from {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+```
+
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+```
+.grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.admin-header {
+    align-items: flex-start;
+    gap: 20px;
+    flex-direction: column;
+}
+```
+
+}
+
+@media (max-width: 600px) {
+
+```
+.header {
+    height: 72px;
+}
+
+
+.header-inner {
+    width: 88%;
+}
+
+
+.brand-main {
+    font-size: 19px;
+}
+
+
+.brand-sub {
+    font-size: 7px;
+}
+
+
+.header-right {
+    gap: 10px;
+}
+
+
+.header-admin {
+    display: none;
+}
+
+
+.hero {
+    padding: 75px 18px 55px;
+}
+
+
+.hero h1 {
+    font-size: 43px;
+}
+
+
+.hero-description {
+    font-size: 12px;
+}
+
+
+.gold-status {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.collection {
+    width: 92%;
+}
+
+
+.section-heading {
+    gap: 15px;
+}
+
+
+.section-heading h2 {
+    font-size: 19px;
+}
+
+
+.grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+
+.card-body {
+    padding: 19px;
+}
+
+
+.admin-page {
+    width: 92%;
+    margin-top: 45px;
+}
+
+
+.admin-header h1 {
+    font-size: 34px;
+}
+
+
+.admin-panel {
+    padding: 22px 18px;
+}
+
+
+.gold-form {
+    flex-direction: column;
+}
+
+
+.gold-form .primary-button {
+    width: 100%;
+}
+
+
+.form-grid {
+    grid-template-columns: 1fr;
+}
+
+
+.file-box {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.admin-item {
+    align-items: flex-start;
+}
+
+
+.admin-model-info {
+    align-items: flex-start;
+}
+
+
+.admin-model-info img,
+.admin-thumb {
+    width: 52px;
+    height: 52px;
+}
+
+
+.danger-button {
+    padding: 7px 10px;
+}
+
+
+.login-card {
+    padding: 40px 25px;
+}
+```
+
+}
+
+@media (max-width: 380px) {
+
+```
+.price {
+    flex-wrap: wrap;
+}
+
+
+.price-label {
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+
+.admin-model-info h3 {
+    font-size: 13px;
+}
+```
+
+}
