@@ -42,6 +42,8 @@ def init_db():
     conn.commit()
     conn.close()
 
+    init_db()
+
 def current_gold():
     conn = db()
     row = conn.execute("SELECT value FROM settings WHERE key='gold_price'").fetchone()
@@ -136,5 +138,4 @@ def logout():
     return redirect(url_for("index"))
 
 if __name__ == "__main__":
-    init_db()
     app.run(debug=True)
